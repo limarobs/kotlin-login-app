@@ -1,0 +1,22 @@
+# Arquivos gerados pelo Gradle e pelo Android Studio
+.gradle/
+**/build/
+*.iml
+.idea/
+
+# Configurações específicas da máquina
+local.properties
+.DS_Store
+
+# Saídas e arquivos nativos gerados
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Chaves de assinatura do Android
+*.jks
+*.keystore
+keystore.properties
+
+# Configuração do projeto Firebase desta máquina
+app/google-services.json
