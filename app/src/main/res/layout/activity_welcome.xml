@@ -56,10 +56,19 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvUserEmail"
+                    android:id="@+id/tvUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvUserEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:background="@color/primary_container"
                     android:padding="16dp"
                     android:textColor="@color/text_primary"

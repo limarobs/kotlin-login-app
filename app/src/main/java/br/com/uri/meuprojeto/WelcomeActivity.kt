@@ -29,6 +29,7 @@ class WelcomeActivity : AppCompatActivity() {
             return
         }
 
+        val userNameText = findViewById<TextView>(R.id.tvUserName)
         val userEmailText = findViewById<TextView>(R.id.tvUserEmail)
         val logoutButton = findViewById<Button>(R.id.btnLogout)
 
@@ -41,6 +42,7 @@ class WelcomeActivity : AppCompatActivity() {
         winningScore = savedInstanceState?.getInt(WINNING_SCORE, DEFAULT_WINNING_SCORE)
             ?: DEFAULT_WINNING_SCORE
 
+        userNameText.text = currentUser.displayName ?: "Jogador"
         userEmailText.text = currentUser.email ?: "E-mail não disponível"
 
         findViewById<Button>(R.id.btnTeamOneIncrease).setOnClickListener {
