@@ -84,7 +84,7 @@
                     app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/senha"
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
@@ -102,7 +102,7 @@
                     app:cornerRadius="14dp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCadastro"
+                    android:id="@+id/btnSignup"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"

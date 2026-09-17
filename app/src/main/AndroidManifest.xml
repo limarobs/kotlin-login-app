@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".BemVindoActivity"
+            android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CadastroActivity"
+            android:name=".SignupActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

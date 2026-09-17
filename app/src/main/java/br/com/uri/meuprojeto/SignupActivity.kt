@@ -9,21 +9,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
 
     private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_signup)
 
         val emailField = findViewById<EditText>(R.id.email)
         val passwordField = findViewById<EditText>(R.id.password)
 
-        val loginButton = findViewById<Button>(R.id.btnLogin)
         val signupButton = findViewById<Button>(R.id.btnSignup)
+        val backButton = findViewById<Button>(R.id.btnBack)
 
-        loginButton.setOnClickListener {
+        signupButton.setOnClickListener {
             val emailValue = emailField.text.toString().trim()
             val passwordValue = passwordField.text.toString()
 
@@ -31,47 +31,29 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            loginButton.isEnabled = false
+            signupButton.isEnabled = false
 
-            auth.signInWithEmailAndPassword(emailValue, passwordValue)
+            auth.createUserWithEmailAndPassword(emailValue, passwordValue)
                 .addOnCompleteListener { task ->
-                    loginButton.isEnabled = true
+                    signupButton.isEnabled = true
 
                     if (task.isSuccessful) {
-                        Toast.makeText(
-                            this,
-                            "Login OK!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        openWelcomeScreen()
+                        Toast.makeText(this, "Cadastro OK!", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, WelcomeActivity::class.java))
+                        finishAffinity()
                     } else {
                         Toast.makeText(
                             this,
-                            task.exception?.localizedMessage ?: "Não foi possível fazer login.",
+                            task.exception?.localizedMessage ?: "Não foi possível criar a conta.",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
         }
 
-        signupButton.setOnClickListener {
-            startActivity(
-                Intent(this, SignupActivity::class.java)
-            )
+        backButton.setOnClickListener {
+            finish()
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        if (auth.currentUser != null) {
-            openWelcomeScreen()
-        }
-    }
-
-    private fun openWelcomeScreen() {
-        startActivity(Intent(this, WelcomeActivity::class.java))
-        finish()
     }
 
     private fun hasValidInputs(
@@ -86,8 +68,8 @@ class MainActivity : AppCompatActivity() {
             return false
         }
 
-        if (passwordValue.isBlank()) {
-            passwordField.error = "Informe sua senha."
+        if (passwordValue.length < 6) {
+            passwordField.error = "A senha deve ter pelo menos 6 caracteres."
             passwordField.requestFocus()
             return false
         }
