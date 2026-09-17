@@ -1,5 +1,6 @@
 # Arquivos gerados pelo Gradle e pelo Android Studio
 .gradle/
+.kotlin/
 **/build/
 *.iml
 .idea/

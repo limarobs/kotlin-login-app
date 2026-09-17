@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                             "Login OK!",
                             Toast.LENGTH_SHORT
                         ).show()
+                        abrirTelaInicial()
                     } else {
                         Toast.makeText(
                             this,
@@ -53,5 +54,18 @@ class MainActivity : AppCompatActivity() {
                 Intent(this, CadastroActivity::class.java)
             )
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            abrirTelaInicial()
+        }
+    }
+
+    private fun abrirTelaInicial() {
+        startActivity(Intent(this, BemVindoActivity::class.java))
+        finish()
     }
 }

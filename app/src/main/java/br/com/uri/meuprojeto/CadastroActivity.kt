@@ -1,5 +1,6 @@
 package br.com.uri.meuprojeto
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -30,6 +31,8 @@ class CadastroActivity : AppCompatActivity() {
 
                     if (it.isSuccessful) {
                         Toast.makeText(this, "Cadastro OK!", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, BemVindoActivity::class.java))
+                        finishAffinity()
                     } else {
                         Toast.makeText(this, "Erro no cadastro", Toast.LENGTH_SHORT).show()
                     }
