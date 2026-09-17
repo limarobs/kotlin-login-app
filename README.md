@@ -4,6 +4,12 @@ Um contador de pontos de truco para Android, com login por e-mail e senha usando
 
 > A ideia inicial era somente praticar um fluxo simples de cadastro e login. Depois que a autenticação ficou pronta, o projeto ganhou uma mesa de truco para dar uma brincada e contar os pontos da partida.
 
+## Telas
+
+| Login | Cadastro | Placar |
+| :---: | :---: | :---: |
+| ![Tela de login](docs/screenshots/login.png) | ![Tela de cadastro](docs/screenshots/signup.png) | ![Tela do placar](docs/screenshots/scoreboard.png) |
+
 ## Funcionalidades
 
 - Cadastro e login com e-mail e senha.
